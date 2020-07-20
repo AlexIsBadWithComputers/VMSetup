@@ -41,6 +41,9 @@ if [! -f /var/run/resume-after-boot]; then
 
 else
     echo "Resuming installation..."
+    sed -i '/bash/d' ~/.zshrc
+    sudo rm -f /var/run/resume-after/reboot
+    
     # test if nvidia-smi works
     if [ $? -eq -]; then
         echo "Nvidia exits"
@@ -49,9 +52,7 @@ else
         exit 1
     fi
 
-    sed -i '/bash/d' ~/.zshrc
-
-    sudo rm -f /var/run/resume-after/reboot
+    
     # continue
     # Start installing tensorflow
     echo "Installing CUDA and CuDNN"
