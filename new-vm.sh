@@ -25,8 +25,8 @@ if [! -f /var/run/resume-after-boot]; then
     sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb -s
     sudo apt-get update
     # python
-    sudo apt-get install python3 -s
-    sudo apt-get install python3-pip -s
+    sudo apt-get install python3 -s -y
+    sudo apt-get install python3-pip -s -y
 
     # cuda
     sudo apt-get install --no-install-recommends nvidia-driver-450 -s 
@@ -43,7 +43,7 @@ else
     echo "Resuming installation..."
     sed -i '/bash/d' ~/.zshrc
     sudo rm -f /var/run/resume-after/reboot
-    
+
     # test if nvidia-smi works
     if [ $? -eq -]; then
         echo "Nvidia exits"
@@ -52,16 +52,14 @@ else
         exit 1
     fi
 
-    
-    # continue
-    # Start installing tensorflow
+    # Start installing CUDA and tensorflow
     echo "Installing CUDA and CuDNN"
-    sudo apt-get install --no-install-recommends cuda-10-1 -s -y
-    sudo apt-get install --no-install-recommends libcudnn7=7.6.4.38-1+cuda10.1  -s -y
-    sudo apt-get install --no-install-recommends libcudnn7-dev=7.6.4.38-1+cuda10.1 -s -y
-    sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 -s -y
-    sudo apt-get install -y --no-install-recommendslibnvinfer-dev=6.0.1-1+cuda10.1 -s -y
-    sudo apt-get install -y --no-install-recommendslibnvinfer-plugin6=6.0.1-1+cuda10.1 -s -y
+    sudo apt-get install --no-install-recommends cuda-10-1 -s
+    sudo apt-get install --no-install-recommends libcudnn7=7.6.4.38-1+cuda10.1  -s
+    sudo apt-get install --no-install-recommends libcudnn7-dev=7.6.4.38-1+cuda10.1 -s
+    sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 -s 
+    sudo apt-get install -y --no-install-recommendslibnvinfer-dev=6.0.1-1+cuda10.1 -s 
+    sudo apt-get install -y --no-install-recommendslibnvinfer-plugin6=6.0.1-1+cuda10.1 -s 
 
     echo "Installing Python Packages"
 
