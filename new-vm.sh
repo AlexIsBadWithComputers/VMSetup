@@ -45,7 +45,7 @@ else
     sudo rm -f /var/run/resume-after/reboot
 
     # test if nvidia-smi works
-    if [ $? -eq 0]; then
+    if [ $? -eq 0 ]; then
         echo "Nvidia exits"
     else 
         echo "Nvidia failed"
