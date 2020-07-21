@@ -35,7 +35,7 @@ if [ ! -f /home/ubuntu/resume-after-boot ]; then
     echo "Cuda Drivers...." 
     sudo apt-get install --no-install-recommends nvidia-driver-450 -y 
 
-    script="bash /home/ubuntu/VMSetup/new-vm.sh"
+    script="bash $(pwd)/new-vm.sh"
     echo "$script" >> ~/.bashrc 
     sudo touch /home/ubuntu/resume-after-boot
 
