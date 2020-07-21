@@ -35,10 +35,9 @@ if [ ! -f /var/run/resume-after-boot ]; then
     echo "$script" >> ~/.zshrc 
     # sudo touch /var/run/resume-after-boot
     sudo touch /var/run/resume-after-boot
-    sudo echo -n >/home/ubuntu/file.txt
-    echo "rebooting"
 
-    if [[ -f /var/run/resume-after-boot ]]; then
+    if [ -f /var/run/resume-after-boot ]; then
+        echo "rebooting"
         sudo reboot
     else
         echo "Resume File Does Not Exist!"
