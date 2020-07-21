@@ -54,7 +54,6 @@ else
     sudo sed -i '/bash/d' ~/.bashrc
     # get rid of the file so we don't consistently keep rebooting 
     sudo rm /home/ubuntu/resume-after-boot
-    touch /home/ubuntu/made_it.txt
     # test if nvidia-smi works
     nvidia-smi
     if [ $? -eq 0 ]; then
