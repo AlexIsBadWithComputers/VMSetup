@@ -9,27 +9,27 @@
 
 if [ ! -f /var/run/resume-after-boot ]; then
     # Purge anything pre-installed 
-    echo "Purging ... "
-    sudo apt-get --purge remove "*cublas*" "cuda*" -s -y
-    sudo apt-get --purge remove "libcudnn7*" -s -y
-    sudo apt-get --purge remove "*nvidia*" -s -y
+    # echo "Purging ... "
+    # sudo apt-get --purge remove "*cublas*" "cuda*" -s -y
+    # sudo apt-get --purge remove "libcudnn7*" -s -y
+    # sudo apt-get --purge remove "*nvidia*" -s -y
 
-    echo "First step instalation of packages...."
-    # adding tensorflow/cuda libraries 
-    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
-    sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-    sudo dpkg -i cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
-    sudo apt-get update
-    wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
-    sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb -s
-    sudo apt-get update
-    # python
-    echo "Python installation...."
-    sudo apt-get install python3 -s -y
-    sudo apt-get install python3-pip -s -y
-    # cuda
-    echo "Cuda Drivers...." 
-    sudo apt-get install --no-install-recommends nvidia-driver-450 -s -y
+    # echo "First step instalation of packages...."
+    # # adding tensorflow/cuda libraries 
+    # wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
+    # sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+    # sudo dpkg -i cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
+    # sudo apt-get update
+    # wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
+    # sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb -s
+    # sudo apt-get update
+    # # python
+    # echo "Python installation...."
+    # sudo apt-get install python3 -s -y
+    # sudo apt-get install python3-pip -s -y
+    # # cuda
+    # echo "Cuda Drivers...." 
+    # sudo apt-get install --no-install-recommends nvidia-driver-450 -s -y
     
 
     script="bash /new-vm.sh"
@@ -43,7 +43,7 @@ else
     echo "Resuming installation..."
     sed -i '/bash/d' ~/.zshrc
     # get rid of the file so we don't consistently keep rebooting 
-    sudo rm -f /var/run/resume-after/reboot
+    sudo rm -f /var/run/resume-after-reboot
     touch /home/ubuntu/made_it
     # test if nvidia-smi works
     if [ $? -eq 0 ]; then
