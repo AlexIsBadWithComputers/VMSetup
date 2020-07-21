@@ -7,8 +7,6 @@
 # As this involves rebooting our system, we must first check
 # if we have run this script before or not
 
-test_flag = ''
-
 if [ ! -f /var/run/resume-after-boot ]; then
     # Purge anything pre-installed 
     echo "Purging ... "
@@ -25,15 +23,16 @@ if [ ! -f /var/run/resume-after-boot ]; then
     sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb -s
     sudo apt-get update
     # python
+    echo "Python installation...."
     sudo apt-get install python3 -s -y
     sudo apt-get install python3-pip -s -y
-    echo "Python"
     # cuda
+    echo "Cuda Drivers...." 
     sudo apt-get install --no-install-recommends nvidia-driver-450 -s -y
+    
     
     script = 'bash /new-vm.sh'
     echo "$script" >> ~/.zshrc
-
     sudo touch /var/run/resume-after-boot
 
     echo "rebooting"
