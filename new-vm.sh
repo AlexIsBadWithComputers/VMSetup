@@ -10,7 +10,7 @@
 # Note: Depending on your internet connection, this can take a long time 
 # to run, but at least as a script you can go do other things 
 
-if [ ! -f /var/run/resume-after-boot ]; then
+if [ ! -f /home/ubuntu/resume-after-boot ]; then
     # Purge anything pre-installed 
     # echo "Purging ... "
     # sudo apt-get --purge remove "*cublas*" "cuda*" -y
@@ -37,10 +37,9 @@ if [ ! -f /var/run/resume-after-boot ]; then
 
     script="bash /home/ubuntu/VMSetup/new-vm.sh"
     echo "$script" >> ~/.bashrc 
-    # sudo touch /var/run/resume-after-boot
-    sudo touch /var/run/resume-after-boot
+    sudo touch /home/ubuntu/resume-after-boot
 
-    if [ -f /var/run/resume-after-boot ]; then
+    if [ -f /home/ubuntu/resume-after-boot ]; then
         echo "rebooting"
         # sudo reboot
     else
@@ -54,7 +53,7 @@ else
     # in a reboot loop 
     sudo sed -i '/bash/d' ~/.bashrc
     # get rid of the file so we don't consistently keep rebooting 
-    sudo rm /var/run/resume-after-boot
+    sudo rm /home/ubuntu/resume-after-boot
     touch /home/ubuntu/made_it.txt
     # test if nvidia-smi works
     nvidia-smi
