@@ -43,7 +43,7 @@ else
     echo "Resuming installation..."
     sed -i '/bash/d' ~/.zshrc
     # get rid of the file so we don't consistently keep rebooting 
-    sudo rm -f /var/run/resume-after-reboot
+    sudo rm -f /var/run/resume-after-boot
     touch /home/ubuntu/made_it.txt
     sudo echo -n >/home/ubuntu/made_it2.txt
     # test if nvidia-smi works
