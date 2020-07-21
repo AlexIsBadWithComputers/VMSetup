@@ -34,10 +34,15 @@ if [ ! -f /var/run/resume-after-boot ]; then
     script="bash /home/ubuntu/VMSetup/new-vm.sh"
     echo "$script" >> ~/.zshrc 
     # sudo touch /var/run/resume-after-boot
-    sudo echo -n >/var/run/resume-after-boot
+    sudo touch /var/run/resume-after-boot
     sudo echo -n >/home/ubuntu/file.txt
     echo "rebooting"
-    sudo reboot 
+
+    if [ -f /var/run/resume-after-boot ]; then
+        sudo reboot
+    else
+        echo "Resume File Does Not Exist!"
+        exit 1
 
 else
     echo "Resuming installation..."
@@ -48,7 +53,7 @@ else
     sudo echo -n >/home/ubuntu/made_it2.txt
     # test if nvidia-smi works
     if [ $? -eq 0 ]; then
-        echo "Nvidia exits"
+        echo "Nvidia works!"
     else 
         echo "Nvidia failed"
         exit 1
