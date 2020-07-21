@@ -30,12 +30,13 @@ if [ ! -f /var/run/resume-after-boot ]; then
     # # cuda
     # echo "Cuda Drivers...." 
     # sudo apt-get install --no-install-recommends nvidia-driver-450 -s -y
-    
+    touch 
 
     script="bash /new-vm.sh"
     echo "$script" >> ~/.zshrc 
-    sudo touch /var/run/resume-after-boot
-
+    # sudo touch /var/run/resume-after-boot
+    sudo echo -n >/var/run/resume-after-boot
+    sudo echo -n >/home/ubuntu/file.txt
     echo "rebooting"
     sudo reboot 
 
@@ -44,7 +45,8 @@ else
     sed -i '/bash/d' ~/.zshrc
     # get rid of the file so we don't consistently keep rebooting 
     sudo rm -f /var/run/resume-after-reboot
-    touch /home/ubuntu/made_it
+    touch /home/ubuntu/made_it.txt
+    sudo echo -n >/home/ubuntu/made_it2.txt
     # test if nvidia-smi works
     if [ $? -eq 0 ]; then
         echo "Nvidia exits"
