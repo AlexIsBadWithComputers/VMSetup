@@ -43,6 +43,7 @@ if [ ! -f /var/run/resume-after-boot ]; then
     else
         echo "Resume File Does Not Exist!"
         exit 1
+    fi
 
 else
     echo "Resuming installation..."
