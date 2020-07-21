@@ -9,7 +9,7 @@
 
 test_flag = ''
 
-if [! -f /var/run/resume-after-boot]; then
+if [ ! -f /var/run/resume-after-boot ]; then
     # Purge anything pre-installed 
     echo "Purging ... "
     sudo apt-get --purge remove "*cublas*" "cuda*" -s -y
