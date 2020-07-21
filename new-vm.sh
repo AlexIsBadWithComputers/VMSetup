@@ -27,9 +27,9 @@ if [ ! -f /var/run/resume-after-boot ]; then
     # python
     sudo apt-get install python3 -s -y
     sudo apt-get install python3-pip -s -y
-
+    echo "Python"
     # cuda
-    sudo apt-get install --no-install-recommends nvidia-driver-450 -s 
+    sudo apt-get install --no-install-recommends nvidia-driver-450 -s -y
     
     script = 'bash /new-vm.sh'
     echo "$script" >> ~/.zshrc
