@@ -32,7 +32,7 @@ if [ ! -f /var/run/resume-after-boot ]; then
     # sudo apt-get install --no-install-recommends nvidia-driver-450 -s -y 
 
     script="bash /home/ubuntu/VMSetup/new-vm.sh"
-    echo "$script" >> ~/.zshrc 
+    echo "$script" >> ~/.bashrc 
     # sudo touch /var/run/resume-after-boot
     sudo touch /var/run/resume-after-boot
 
@@ -46,7 +46,7 @@ if [ ! -f /var/run/resume-after-boot ]; then
 
 else
     echo "Resuming installation..."
-    sed -i '/bash/d' ~/.zshrc
+    sed -i '/bash/d' ~/.bashrc
     # get rid of the file so we don't consistently keep rebooting 
     sudo rm -f /var/run/resume-after-boot
     touch /home/ubuntu/made_it.txt
