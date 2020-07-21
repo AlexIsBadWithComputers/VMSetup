@@ -43,7 +43,7 @@ else
     echo "Resuming installation..."
     sed -i '/bash/d' ~/.zshrc
     sudo rm -f /var/run/resume-after/reboot
-
+    touch made_it
     # test if nvidia-smi works
     if [ $? -eq 0 ]; then
         echo "Nvidia exits"
@@ -52,16 +52,23 @@ else
         exit 1
     fi
 
-    # Start installing CUDA and tensorflow
-    echo "Installing CUDA and CuDNN"
-    sudo apt-get install --no-install-recommends cuda-10-1 -s
-    sudo apt-get install --no-install-recommends libcudnn7=7.6.4.38-1+cuda10.1  -s
-    sudo apt-get install --no-install-recommends libcudnn7-dev=7.6.4.38-1+cuda10.1 -s
-    sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 -s 
-    sudo apt-get install -y --no-install-recommendslibnvinfer-dev=6.0.1-1+cuda10.1 -s 
-    sudo apt-get install -y --no-install-recommendslibnvinfer-plugin6=6.0.1-1+cuda10.1 -s 
+    # # Start installing CUDA and tensorflow
+    # echo "Installing CUDA and CuDNN"
+    # sudo apt-get install --no-install-recommends cuda-10-1 -s
+    # sudo apt-get install --no-install-recommends libcudnn7=7.6.4.38-1+cuda10.1  -s
+    # sudo apt-get install --no-install-recommends libcudnn7-dev=7.6.4.38-1+cuda10.1 -s
+    # sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 -s 
+    # sudo apt-get install -y --no-install-recommendslibnvinfer-dev=6.0.1-1+cuda10.1 -s 
+    # sudo apt-get install -y --no-install-recommendslibnvinfer-plugin6=6.0.1-1+cuda10.1 -s 
 
-    echo "Installing Python Packages"
+    # echo "Installing Python Packages"
+    # pip3 install numpy pandas jupyter scikit-learn networkx 
+    # echo "Installing tensorflow"
+    # pip3 install tensorflow-gpu
+    # echo "Installing pytorch"
+    # pip3 install torch==1.5.1+cu101 torchvision==0.6.1+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+    # echo "Installing keras"
+    # pip3 install keras
 
 fi
 
