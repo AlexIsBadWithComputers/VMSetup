@@ -38,7 +38,8 @@ if [ ! -f /var/run/resume-after-boot ]; then
 
     if [ -f /var/run/resume-after-boot ]; then
         echo "rebooting"
-        sudo reboot
+        # sudo reboot
+        echo "I WOULD HAVE REBOOTED HERE"
     else
         echo "Resume File Does Not Exist!"
         exit 1
