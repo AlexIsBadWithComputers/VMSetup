@@ -38,7 +38,7 @@ if [ ! -f /var/run/resume-after-boot ]; then
     sudo echo -n >/home/ubuntu/file.txt
     echo "rebooting"
 
-    if [ -f /var/run/resume-after-boot ]; then
+    if [[ -f /var/run/resume-after-boot ]]; then
         sudo reboot
     else
         echo "Resume File Does Not Exist!"
