@@ -21,4 +21,6 @@ cd VMSetup
 ./new-vm.sh
 ```
 
-This will then execute all the installation scripts. Note that this will take some time depending on your internet connection, and will use approximately 6Gb of disk. 
+This will then execute all the installation scripts. Note that this will take some time depending on your internet connection, and will use > 8 Gb of disk. 
+
+**NOTE**: This does reboot (and automatically resume installation) your VM, so you will lose connection. 
