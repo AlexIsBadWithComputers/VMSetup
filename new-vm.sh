@@ -42,7 +42,7 @@ if [ ! -f /var/run/resume-after-boot ]; then
 
     if [ -f /var/run/resume-after-boot ]; then
         echo "rebooting"
-        sudo reboot
+        # sudo reboot
     else
         echo "Resume File Does Not Exist!"
         exit 1
@@ -52,9 +52,9 @@ else
     echo "Resuming installation..."
     # remove the command from our bash script so we don't get stuck
     # in a reboot loop 
-    sed -i '/bash/d' ~/.bashrc
+    sudo sed -i '/bash/d' ~/.bashrc
     # get rid of the file so we don't consistently keep rebooting 
-    sudo rm -f /var/run/resume-after-boot
+    sudo rm /var/run/resume-after-boot
     touch /home/ubuntu/made_it.txt
     # test if nvidia-smi works
     nvidia-smi
@@ -67,9 +67,9 @@ else
 
     # Start installing CUDA and tensorflow
     echo "Installing CUDA and CuDNN"
-    sudo apt-get install --no-install-recommends cuda-10-1 
-    sudo apt-get install --no-install-recommends libcudnn7=7.6.4.38-1+cuda10.1  
-    sudo apt-get install --no-install-recommends libcudnn7-dev=7.6.4.38-1+cuda10.1 
+    sudo apt-get install --no-install-recommends cuda-10-1 -y
+    sudo apt-get install --no-install-recommends libcudnn7=7.6.4.38-1+cuda10.1 -y
+    sudo apt-get install --no-install-recommends libcudnn7-dev=7.6.4.38-1+cuda10.1 -y
     sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 
     sudo apt-get install -y --no-install-recommendslibnvinfer-dev=6.0.1-1+cuda10.1 
     sudo apt-get install -y --no-install-recommendslibnvinfer-plugin6=6.0.1-1+cuda10.1 
