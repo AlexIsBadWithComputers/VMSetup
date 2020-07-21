@@ -15,6 +15,7 @@ if [ ! -f /var/run/resume-after-boot ]; then
     sudo apt-get --purge remove "*nvidia*" -s -y
 
     echo "First step instalation of packages...."
+    # adding tensorflow/cuda libraries 
     wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
     sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
     sudo dpkg -i cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
@@ -31,8 +32,8 @@ if [ ! -f /var/run/resume-after-boot ]; then
     sudo apt-get install --no-install-recommends nvidia-driver-450 -s -y
     
 
-    script = "bash /new-vm.sh"
-    echo "$script" >> ~/.zshrc
+    script="bash /new-vm.sh"
+    echo "$script" >> ~/.zshrc 
     sudo touch /var/run/resume-after-boot
 
     echo "rebooting"
