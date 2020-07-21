@@ -42,8 +42,9 @@ if [ ! -f /var/run/resume-after-boot ]; then
 else
     echo "Resuming installation..."
     sed -i '/bash/d' ~/.zshrc
+    # get rid of the file so we don't consistently keep rebooting 
     sudo rm -f /var/run/resume-after/reboot
-    touch made_it
+    touch /home/ubuntu/made_it
     # test if nvidia-smi works
     if [ $? -eq 0 ]; then
         echo "Nvidia exits"
