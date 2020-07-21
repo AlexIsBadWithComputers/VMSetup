@@ -63,7 +63,7 @@ else
         exit 1
     fi
 
-    Start installing CUDA and tensorflow
+    #  Start installing CUDA and tensorflow
     echo "Installing CUDA and CuDNN"
     sudo apt-get install --no-install-recommends cuda-10-1 -y
     sudo apt-get install --no-install-recommends libcudnn7=7.6.4.38-1+cuda10.1 -y
