@@ -23,4 +23,4 @@ cd VMSetup
 
 This will then execute all the installation scripts. Note that this will take some time depending on your internet connection, and will use > 8 Gb of disk. 
 
-**NOTE**: This does reboot (and automatically resume installation) your VM, so you will lose connection. 
+**NOTE**: This does rebootyour VM, so you will lose connection. Not to worry however! As this will automatically continue once it does if you log in or not. I recommend _not_ logging back in for a while as this whole installation process takes upwards of 2 hours depending on your internet connection/how many requirements for each library also get installed. 
