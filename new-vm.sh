@@ -69,8 +69,8 @@ else
     sudo apt-get install --no-install-recommends libcudnn7=7.6.4.38-1+cuda10.1 -y
     sudo apt-get install --no-install-recommends libcudnn7-dev=7.6.4.38-1+cuda10.1 -y
     sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 
-    sudo apt-get install -y --no-install-recommendslibnvinfer-dev=6.0.1-1+cuda10.1 
-    sudo apt-get install -y --no-install-recommendslibnvinfer-plugin6=6.0.1-1+cuda10.1 
+    sudo apt-get install -y --no-install-recommends libnvinfer-dev=6.0.1-1+cuda10.1 
+    sudo apt-get install -y --no-install-recommends libnvinfer-plugin6=6.0.1-1+cuda10.1 
 
     echo "Installing Python Packages"
     # If you wan't more feel free to add them
