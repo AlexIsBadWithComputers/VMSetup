@@ -74,7 +74,7 @@ else
 
     echo "Installing Python Packages"
     # If you wan't more feel free to add them
-    pip3 install numpy pandas jupyter scikit-learn networkx 
+    pip3 install numpy pandas jupyter scikit-learn networkx scipy cvxpy
     # Separate line item cause it takes a year
     echo "Installing tensorflow"
     pip3 install tensorflow-gpu
